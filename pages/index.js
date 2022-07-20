@@ -10,6 +10,8 @@ export default function Home() {
 
   var game, basket, fruits, basketLeft, basketBottom;
 
+  let score = 0;
+
   useEffect(() => {
     game = gameRef.current;
     basket = basketRef.current;
@@ -53,22 +55,40 @@ export default function Home() {
     fruits.appendChild(fruit);
     console.log(fruit)
     function fallDownFruit() {
-      fruitBottom -= 10;
+      if (
+        fruitBottom < basketBottom + 50 &&
+        fruitBottom > basketBottom &&
+        fruitLeft > basketLeft - 30 &&
+        fruitLeft < basketLeft + 80
+      ) {
+        fruits.removeChild(fruit);
+        clearInterval(fallInterval);
+        score++;
+      }
+      if (fruitBottom < basketBottom) {
+        alert("Game over! Your Score is " + score);
+        clearInterval(fallInterval);
+        clearTimeout(fruitTimeout);
+        location.reload();
+      }
+      fruitBottom -= 5;
       fruit.style.bottom = fruitBottom + "px";
       fruit.style.left = fruitLeft + "px";
     }
-    setInterval(fallDownFruit, 20);
-    // setTimeout(generateFruits, 2000);
+
+
+    var fallInterval = setInterval(fallDownFruit, 20);
+    var fruitTimeout = setTimeout(generateFruits, 2000);
   }
 
   return (
-    <>
-      <button onClick={generateFruits}>click</button>
+    <div className="container">
+      <h1>Javascript FruitCatch Game</h1>
       <div ref={gameRef} className="game">
         <div ref={fruitsRef} className="fruits" id="fruits" ></div>
         <div className="dangerline"></div>
         <div ref={basketRef} className="basket"></div>
       </div>
-    </>
+    </div>
   )
 }
