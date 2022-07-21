@@ -82,13 +82,25 @@ export default function Home() {
   }
 
   return (
-    <div className="container">
-      <h1>Javascript FruitCatch Game</h1>
-      <div ref={gameRef} className="game">
-        <div ref={fruitsRef} className="fruits" id="fruits" ></div>
-        <div className="dangerline"></div>
-        <div ref={basketRef} className="basket"></div>
+    <>
+      <nav>
+        <h1>Javascript FruitCatch Game</h1>
+      </nav>
+      <div className="container">
+        <div className="blurBg"></div>
+        <div className='=row'>
+          <div className='column'>
+            <div ref={gameRef} className="game">
+              <div className="background">
+                <div className="blur"></div>
+                <div ref={fruitsRef} className="fruits" id="fruits" ></div>
+                <div className="dangerline"></div>
+                <div ref={basketRef} className="basket"></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   )
 }

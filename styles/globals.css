@@ -1,22 +1,44 @@
 html,
 body {
-   width: 100%;
-   height: 100vh;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-}
- 
-* {
   padding: 0;
   margin: 0;
+  background-image: url('https://res.cloudinary.com/dogjmmett/image/upload/v1658350980/background_zcovco.jpg');
+  color: #0000;
+  text-align: center;
+  object-fit: cover;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
   box-sizing: border-box;
 }
 
 .container {
+  background-image: url('https://res.cloudinary.com/dogjmmett/image/upload/v1658350980/background_zcovco.jpg');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
   overflow: hidden;
+  color: black;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
-
+nav {
+  background-color:  #FFF;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  color: #000;
+  padding: 2%;
+}
 .row {
   align-items: center;
   display: flex;
@@ -39,13 +61,28 @@ body {
 }
 
 .game {
-  width: 700px;
-  height: 500px;
-  background: lightblue;
+  width: 45vw;
+  height: 60vh;
+  backdrop-filter: blur(5px);
   position: relative;
   box-shadow:
     0 5px 10px rgba(154, 160, 185, 0.05),
     0 15px 40px rgba(166, 173, 201, 0.2);
+}
+
+.background {
+  background-image: url('https://res.cloudinary.com/dogjmmett/image/upload/v1658347080/love-wallpaper-preview_roriir.jpg');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 45vw;
+  height: 60vh;
+}
+ 
+.blur {
+  background: rgba(250, 246, 246, 0.696);  
+  width: 45vw;
+  height: 60vh;
 }
 
 .dangerline {
@@ -66,8 +103,43 @@ body {
 }
 
 .fruit {
-  width: 30px;
-  height: 30px;
-  background-color: green;
+  width:2em;
+  height:2em;
+  border-radius: 2em 2em 3em 3em;
+  background-color:  #ff4355;
   position: absolute;
+}
+
+.apple {
+  width:6em;
+  height:5em;
+  background-color:  #ff4355;
+  box-shadow: inset 0.2em -0.2em  #cc1022;
+  border-radius: 2em 2em 3em 3em;
+  position:absolute;
+  top: 1em;
+  left:0.3em;
+}
+
+.apple:before {
+  top:-.2em;
+  left:1.8em;
+  content:"";
+  width:4.1em;
+  height:2.75em;
+  background-color: inherit;
+  border-radius: 3em 3em 0 0 ;
+  position: absolute;
+  box-shadow:-1.5em 0 0   #ff4355, inset .2em 0.2em  #ff4355;
+}
+
+.apple:after{
+  content:"";
+  width: 0.2em;
+  height: 1em;
+  background-color:brown;
+  position:absolute;
+  z-index: 2;
+  top: -0.5em;
+  left: 3em;
 }
